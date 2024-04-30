@@ -1,6 +1,9 @@
 package com.timetrackerbackend.timetrackerbackend.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +22,16 @@ public class UserController {
     @GetMapping
     public String getRoot() {
         return "{'Hello': 'World!'}";
+    }
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return userService.getUsers();
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable String id) {
+        return userService.getUserById(id);
     }
     
     @PostMapping("/user")
