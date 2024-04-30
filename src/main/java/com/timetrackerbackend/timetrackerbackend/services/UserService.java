@@ -30,5 +30,10 @@ public class UserService {
             return null;
         }
     }
+
+    public User editUser(String id, User user) {
+        user.setId(id);
+        return userRepository.save(user);
+    }
     
 }
