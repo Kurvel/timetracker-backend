@@ -1,6 +1,8 @@
 package com.timetrackerbackend.timetrackerbackend.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +23,23 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @GetMapping("task/{taskId}")
-    public Task getTask(@PathVariable String taskId ) {
-        return taskService.getTask(taskId);
+    @GetMapping("user/{id}/task/{taskId}")
+    public Task getTask(@PathVariable String id,@PathVariable String taskId ) {
+        return taskService.getTask(id, taskId);
     }
 
     @PostMapping("/user/{id}/task")
     public User addTask(@RequestBody Task task, @PathVariable String id) {
         return taskService.addTask(task, id);
+    }
+
+    @PatchMapping("user/{id}/task/{taskId}")
+    public Task editTask(@PathVariable String id, @PathVariable String taskId, @RequestBody Task task) {
+        return taskService.editTask(id, taskId, task);
+    }
+
+    @DeleteMapping("user/{id}/task/{taskId}")
+    public Task deleteTask(@PathVariable String id, @PathVariable String taskId) {
+        return taskService.deleteTask(id, taskId);
     }
 }
