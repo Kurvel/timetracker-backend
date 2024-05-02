@@ -14,8 +14,8 @@ public class User {
     private String password;
     private List<Task> tasks = new ArrayList<>();
     
-    public User(String id, String userName, String password, List<Task> tasks) {
-        this.id = id;
+    public User(String userName, String password, List<Task> tasks) {
+        
         this.userName = userName;
         this.password = password;
         this.tasks = tasks;
