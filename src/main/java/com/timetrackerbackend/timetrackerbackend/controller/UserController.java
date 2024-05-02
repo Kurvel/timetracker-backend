@@ -2,6 +2,7 @@ package com.timetrackerbackend.timetrackerbackend.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,5 +44,11 @@ public class UserController {
     @PatchMapping("/user/{id}")
     public User editUser(@PathVariable String id, @RequestBody User user) {
         return userService.editUser(id, user);
+    }
+
+    @DeleteMapping("/user/{id}")
+    public String deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
+        return "Deleted " + id;
     }
 }
