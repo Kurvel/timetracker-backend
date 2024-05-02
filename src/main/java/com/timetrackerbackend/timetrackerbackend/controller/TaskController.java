@@ -1,5 +1,6 @@
 package com.timetrackerbackend.timetrackerbackend.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,10 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-
+    @GetMapping("task/{taskId}")
+    public Task getTask(@PathVariable String taskId ) {
+        return taskService.getTask(taskId);
+    }
 
     @PostMapping("/user/{id}/task")
     public User addTask(@RequestBody Task task, @PathVariable String id) {

@@ -20,6 +20,16 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    public Task getTask(String taskId) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        if (optionalTask.isPresent()) {
+            Task task = optionalTask.get();
+            return task;
+        }   else {
+            return null;
+        }
+    }
+
     public User addTask(Task task, String userId) {
         Optional<User> optionalUser = userRepository.findById(userId);
 
