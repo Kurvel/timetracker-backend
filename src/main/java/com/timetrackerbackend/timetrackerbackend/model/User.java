@@ -1,5 +1,8 @@
 package com.timetrackerbackend.timetrackerbackend.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,11 +12,13 @@ public class User {
     private String id;
     private String userName;
     private String password;
-
-    public User(String id, String userName, String password) {
-        this.id = id;
+    private List<Task> tasks = new ArrayList<>();
+    
+    public User(String userName, String password, List<Task> tasks) {
+        
         this.userName = userName;
         this.password = password;
+        this.tasks = tasks;
     }
 
     public String getId() {
@@ -39,6 +44,18 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+   
+    
+    
     
 
     
