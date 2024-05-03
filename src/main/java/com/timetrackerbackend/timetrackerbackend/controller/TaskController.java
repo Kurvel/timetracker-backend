@@ -24,7 +24,7 @@ public class TaskController {
     }
 
     @GetMapping("user/{id}/task/{taskId}")
-    public Task getTask(@PathVariable String id,@PathVariable String taskId ) {
+    public Task getTask(@PathVariable String id, @PathVariable String taskId ) {
         return taskService.getTask(id, taskId);
     }
 
