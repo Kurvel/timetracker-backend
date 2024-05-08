@@ -1,5 +1,6 @@
 package com.timetrackerbackend.timetrackerbackend.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,6 +14,7 @@ import com.timetrackerbackend.timetrackerbackend.model.Time;
 
 import com.timetrackerbackend.timetrackerbackend.services.TimeService;
 
+@CrossOrigin
 @RestController
 public class TimeController {
     

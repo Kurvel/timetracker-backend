@@ -9,9 +9,9 @@ public class Time {
     private String id;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private LocalDateTime elapsedTime;
+    private long elapsedTime;
 
-    public Time(String id, LocalDateTime startTime, LocalDateTime endTime, LocalDateTime elapsedTime) {
+    public Time(String id, LocalDateTime startTime, LocalDateTime endTime, long elapsedTime) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -42,11 +42,11 @@ public class Time {
         this.endTime = endTime;
     }
 
-    public LocalDateTime getElapsedTime() {
+    public long getElapsedTime() {
         return elapsedTime;
     }
 
-    public void setElapsedTime(LocalDateTime elapsedTime) {
+    public void setElapsedTime(long elapsedTime) {
         this.elapsedTime = elapsedTime;
     }
     
