@@ -3,6 +3,7 @@ package com.timetrackerbackend.timetrackerbackend.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.timetrackerbackend.timetrackerbackend.config.UserAuthenticationProvider;
 import com.timetrackerbackend.timetrackerbackend.dtos.CredentialsDto;
 import com.timetrackerbackend.timetrackerbackend.dtos.SignUpDto;
+import com.timetrackerbackend.timetrackerbackend.dtos.TaskDto;
 import com.timetrackerbackend.timetrackerbackend.dtos.UserDto;
+import com.timetrackerbackend.timetrackerbackend.model.Task;
+import com.timetrackerbackend.timetrackerbackend.model.User;
+import com.timetrackerbackend.timetrackerbackend.services.TaskService;
 import com.timetrackerbackend.timetrackerbackend.services.UserService;
 
 import java.net.URI;
@@ -21,6 +26,10 @@ public class AuthController {
 
     private final UserService userService;
     private final UserAuthenticationProvider userAuthenticationProvider;
+    
+
+    
+    
 
     @PostMapping("/login")
     public ResponseEntity<UserDto> login(@RequestBody @Valid CredentialsDto credentialsDto) {
@@ -35,5 +44,6 @@ public class AuthController {
         createdUser.setToken(userAuthenticationProvider.createToken(user.getLogin()));
         return ResponseEntity.created(URI.create("/users/" + createdUser.getId())).body(createdUser);
     }
+    
 
 }

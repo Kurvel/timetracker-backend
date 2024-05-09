@@ -12,20 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SignUpDto {
-
-    @NotEmpty
-    private String firstName;
-
-    @NotEmpty
-    private String lastName;
-
-    @NotEmpty
-    private String login;
-
-    @NotEmpty
-    private char[] password;
-
+public class TaskDto {
+    
     private List<TaskDto> tasks;
-
 }
