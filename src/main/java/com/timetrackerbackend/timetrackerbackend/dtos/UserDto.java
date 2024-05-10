@@ -1,5 +1,7 @@
 package com.timetrackerbackend.timetrackerbackend.dtos;
 
+import com.timetrackerbackend.timetrackerbackend.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +18,6 @@ public class UserDto {
     private String lastName;
     private String login;
     private String token;
+    private Role role;
 
 }

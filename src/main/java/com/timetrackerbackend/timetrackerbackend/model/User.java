@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.timetrackerbackend.timetrackerbackend.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +26,8 @@ public class User {
     private String password;
     private String login;
     private List<Task> tasks = new ArrayList<>();
+    
+    private Role role;
 
     
     

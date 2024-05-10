@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.timetrackerbackend.timetrackerbackend.dtos.CredentialsDto;
 import com.timetrackerbackend.timetrackerbackend.dtos.SignUpDto;
 import com.timetrackerbackend.timetrackerbackend.dtos.UserDto;
+import com.timetrackerbackend.timetrackerbackend.enums.Role;
 import com.timetrackerbackend.timetrackerbackend.exceptions.AppException;
 import com.timetrackerbackend.timetrackerbackend.mappers.UserMapper;
 import com.timetrackerbackend.timetrackerbackend.model.User;
@@ -52,6 +53,7 @@ public class UserService {
         }
 
         User user = userMapper.signUpToUser(userDto);
+        user.setRole(Role.USER);
         user.setPassword(passwordEncoder.encode(CharBuffer.wrap(userDto.getPassword())));
 
         User savedUser = userRepository.save(user);
