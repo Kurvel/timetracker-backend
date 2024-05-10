@@ -27,6 +27,7 @@ public class User {
     private String login;
     private List<Task> tasks = new ArrayList<>();
     
+    
     private Role role;
 
     
