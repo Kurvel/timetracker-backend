@@ -30,8 +30,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                         .requestMatchers(HttpMethod.GET, "/user/**", "/users").authenticated()
-                        // .requestMatchers(HttpMethod.DELETE, "/user/**").hasRole("ADMIN")
-                        // .requestMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
                         .anyRequest().authenticated())
         ;
         return http.build();
