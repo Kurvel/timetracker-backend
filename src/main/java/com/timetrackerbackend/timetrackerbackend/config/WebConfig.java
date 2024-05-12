@@ -18,7 +18,7 @@ public class WebConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://seashell-app-llljw.ondigitalocean.app");
+        config.addAllowedOrigin("*");
         config.setAllowedHeaders(Arrays.asList(
             HttpHeaders.AUTHORIZATION,
             HttpHeaders.CONTENT_TYPE,
